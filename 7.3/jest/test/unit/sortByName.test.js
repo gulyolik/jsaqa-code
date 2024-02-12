@@ -14,4 +14,13 @@ describe("Books names test suit", () => {
       "Гарри Поттер",
     ]);
   });
+  it("Book names should have equal length", ()=>{
+    expect(sorting.sortByName([
+      "Название",
+      "Название",
+    ])).toEqual([
+      "Название",
+    "Название",
+  ])
+  })
 });
