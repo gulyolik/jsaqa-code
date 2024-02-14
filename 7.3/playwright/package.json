@@ -1,15 +1,38 @@
 {
-  "name": "jsaqa_3_2",
+  "name": "mytests",
   "version": "1.0.0",
-  "description": "",
+  "description": "HW",
   "main": "index.js",
   "scripts": {
-    "test": "playwright"
+    "test": "playwright test"
   },
-  "author": "",
+  "author": "gulyolik",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.12.3",
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.17",
     "playwright": "^1.12.3"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "playright": "^0.0.22",
+    "playwright-core": "^1.41.2",
+    "typescript": "^4.9.5",
+    "undici-types": "^5.26.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gulyolik/jsaqa-code.git"
+  },
+  "keywords": [
+    "playwrite",
+    "tests",
+    "homework"
+  ],
+  "bugs": {
+    "url": "https://github.com/gulyolik/jsaqa-code/issues"
+  },
+  "homepage": "https://github.com/gulyolik/jsaqa-code#readme"
 }
