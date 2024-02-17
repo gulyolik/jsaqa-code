@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 
+=======
+coverage/
+/node_modules/
+>>>>>>> b907b7eff4450bd7b88ee553e068adc68d594a6e
 user.js
 /test-results/
 /playwright-report/
@@ -8,6 +13,7 @@ user.js
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+<<<<<<< HEAD
 
 .vscode/*
 !.vscode/settings.json
@@ -23,3 +29,5 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+=======
+>>>>>>> b907b7eff4450bd7b88ee553e068adc68d594a6e

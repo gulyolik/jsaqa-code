@@ -1,8 +1,15 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+<<<<<<< HEAD
 launchOptions:{
   headless: false
   slowMo: 5000
+=======
+launchOptions: {
+  headless: false
+  slowmo: 5000
+  devtools: true
+>>>>>>> b907b7eff4450bd7b88ee553e068adc68d594a6e
 }
 /**
  * Read environment variables from file.
