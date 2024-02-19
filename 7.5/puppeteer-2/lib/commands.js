@@ -17,6 +17,7 @@ module.exports = {
   },
   putText: async function (page, selector, text) {
     try {
+      await page.waitForSelector(selector);
       const inputField = await page.$(selector);
       await inputField.focus();
       await inputField.type(text);
