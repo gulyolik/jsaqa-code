@@ -1,16 +1,6 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-<<<<<<< HEAD
-launchOptions:{
-  headless: false
-  slowMo: 5000
-=======
-launchOptions: {
-  headless: false
-  slowmo: 5000
-  devtools: true
->>>>>>> b907b7eff4450bd7b88ee553e068adc68d594a6e
-}
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -21,7 +11,7 @@ launchOptions: {
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './e2e',
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -34,6 +24,11 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    launchOptions: {
+      headless: false,
+      slowMo: 5000,
+      devtools: true
+    },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 

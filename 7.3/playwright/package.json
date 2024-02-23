@@ -4,35 +4,25 @@
   "description": "HW",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "playwright test",
     "eslint": "eslint",
     "prettier": "prettier"
-=======
-    "test": "playwright test"
->>>>>>> b907b7eff4450bd7b88ee553e068adc68d594a6e
   },
   "author": "gulyolik",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.17",
-<<<<<<< HEAD
     "playwright": "^1.41.2"
-  },
-  "dependencies": {
-    "eslint": "^8.56.0",
-    "prettier": "^3.2.5"
-  }
-=======
-    "playwright": "^1.12.3"
   },
   "directories": {
     "test": "tests"
   },
   "dependencies": {
+    "eslint": "^8.56.0",
     "playright": "^0.0.22",
     "playwright-core": "^1.41.2",
+    "prettier": "^3.2.5",
     "typescript": "^4.9.5",
     "undici-types": "^5.26.5"
   },
@@ -47,7 +37,5 @@
   ],
   "bugs": {
     "url": "https://github.com/gulyolik/jsaqa-code/issues"
-  },
-  "homepage": "https://github.com/gulyolik/jsaqa-code#readme"
->>>>>>> b907b7eff4450bd7b88ee553e068adc68d594a6e
+  }
 }
