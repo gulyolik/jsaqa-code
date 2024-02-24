@@ -26,4 +26,13 @@ module.exports = {
       throw new Error(`Not possible to type text for selector: ${selector}`);
     }
   },
+
+  clickXPathElement: async function (page, selector) {
+    try {
+      await page.waitForXPath(selector);
+      await page.click("xpath/" + selector);
+    } catch (error) {
+      throw new Error(`XPath selector is not clickable: ${selector}`);
+    }
+  },
 };

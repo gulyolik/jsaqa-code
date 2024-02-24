@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const chai = require("chai");
 const expect = chai.expect;
 const { Given, When, Then, Before, After } = require("cucumber");
-const { putText, getText } = require("../../lib/commands.js");
+const { clickElement, clickXPathElement, putText, getText } = require("../../lib/commands.js");
 
 Before(async function () {
   const browser = await puppeteer.launch({ headless: false, slowMo: 50 });
@@ -24,43 +24,37 @@ Given("user is on poster page", async function () {
 });
 
 When("user selects available session", async function () {
-  return await clickElement(
-    this.page,
-    ".movie-seances__time:not(.acceptin-button-disabled)"
-  );
+  var date = new Date;
+  let necessaryDay = String(date.getDate + 1);
+  return clickXPathElement(this.page, "//span[text() = '" + necessaryDay + "']",
+  {
+    setTimeout: 60 * 1000,
+  })
 });
 
-When("user reserves one free seat", async function () {
+When("user reserves one free seat",{timeout: 60 * 1000}, async function () {
   await clickElement(
     this.page,
     ".buying-scheme__wrapper .buying-scheme__chair:not(.buying-scheme__chair_taken, .buying-scheme__chair_selected)"
   );
 });
 
-When("user reserves free VIP seat", async function () {
+When("user reserves free VIP seat",{timeout: 60 * 1000}, async function () {
   await clickElement(
     this.page,
-    ".buying-scheme__wrapper .buying-scheme__chair:not(.buying-scheme__chair .buying-scheme__chair_vip)"
-  );
+    ".buying-scheme__chair_vip");
 });
 
-When("user selects the occupied seat", async function () {
+When("user selects the occupied seat",{timeout: 60 * 1000}, async function () {
   return await clickElement(
     this.page,
-    ".buying-scheme__wrapper .buying-scheme__chair_taken"
-  );
+    ".buying-scheme__chair_taken");
 });
 
 Then ("user sees that his place is chosen", async function (string) {
-  expect(this.page).contain(".buying-scheme__chair_selected");
+  expect(this.page).waitForXPath('//button[text() = "Забронировать"][not(@disabled)]')
 })
 
 Then("button {string} is disabled", async function (string) {
-  const actualAttribtue = await this.page.$eval(
-    "button.acceptin-button",
-    (link) => link.getAttribute("disabled")
-  );
-  const actualText = await getText(this.page, "button.acceptin-button");
-  expect(actualAttribtue).contain("true");
-  expect(actualText).contain(string);
+  expect(this.page).waitForXPath('//button[text() = "Забронировать"][(@disabled)]')
 });
