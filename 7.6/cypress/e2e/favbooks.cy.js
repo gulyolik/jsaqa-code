@@ -9,13 +9,13 @@ describe("The first task tests", ()=>{
       it("Add to favourite", () =>{
         cy.login("test@test.com", "test");
         cy.addNew("Book name","Book description", "Book author");
-        cy.addToFavorite;
+        cy.addToFavorite();
       })
-      it("Should log out", () =>{
+      it("Should delete book from favourite", () =>{
         cy.login("test@test.com", "test");
-        cy.get('button').contains('Log out').click();
-        cy.get('button').contains("Log in").should('be.visible');
-        cy.contains("Добро пожаловать").should("not.exist");
+        cy.addNew("Book name","Book description", "Book author");
+        cy.addToFavorite();
+        cy.get('button').contains("Delete from favorite").click();
       }
       )
 })
