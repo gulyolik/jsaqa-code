@@ -24,12 +24,12 @@ Given("user is on poster page", async function () {
 });
 
 When("user selects available session", async function () {
-  var date = new Date;
-  let necessaryDay = String(date.getDate + 1);
-  return clickXPathElement(this.page, "//span[text() = '" + necessaryDay + "']",
-  {
-    setTimeout: 60 * 1000,
-  })
+  const elements = await this.page.$x("//a[@class='page-nav__day '][1]");
+  await elements[0].click();
+  await clickElement(
+    this.page,
+    ".movie-seances__time"
+  );
 });
 
 When("user reserves one free seat",{timeout: 60 * 1000}, async function () {
@@ -52,9 +52,9 @@ When("user selects the occupied seat",{timeout: 60 * 1000}, async function () {
 });
 
 Then ("user sees that his place is chosen", async function (string) {
-  expect(this.page).waitForXPath('//button[text() = "Забронировать"][not(@disabled)]')
+  expect(await this.page.waitForXPath('//button[text() = "Забронировать"][not(@disabled)]'));
 })
 
 Then("button {string} is disabled", async function (string) {
-  expect(this.page).waitForXPath('//button[text() = "Забронировать"][(@disabled)]')
+  expect(await this.page.waitForXPath('//button[text() = "Забронировать"][(@disabled)]'));
 });
